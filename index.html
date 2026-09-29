@@ -33,20 +33,32 @@
 
   <style>
     :root {
-      --ink: #111827;
-      --muted: #6b7280;
-      --line: #e5e7eb;
+      --ink: #172033;
+      --muted: #667085;
+      --line: #e4e7ec;
       --soft: #f8fafc;
-      --blue: #2563eb;
-      --green: #0f766e;
-      --amber: #a16207;
-      --violet: #7c3aed;
+      --blue: #2f6fed; --blue-soft: #eef4ff;
+      --teal: #0f8b8d; --teal-soft: #eaf8f7;
+      --amber: #c47a19; --amber-soft: #fff6e8;
+      --violet: #7656c9; --violet-soft: #f3efff;
+      --green: #23856d; --green-soft: #ebf8f2;
+      --rose: #c15b7c; --rose-soft: #fff0f5;
     }
     html { scroll-behavior: smooth; }
     body { font-family: 'Inter', sans-serif; color: var(--ink); background: #fff; }
     .hero.is-literature {
-      background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+      position: relative; overflow: hidden;
+      background:
+        radial-gradient(circle at 12% 18%, rgba(47,111,237,.12), transparent 28%),
+        radial-gradient(circle at 88% 14%, rgba(118,86,201,.11), transparent 26%),
+        radial-gradient(circle at 72% 84%, rgba(15,139,141,.09), transparent 24%),
+        linear-gradient(180deg, #f8fbff 0%, #ffffff 100%);
       border-bottom: 1px solid var(--line);
+    }
+    .hero.is-literature::after {
+      content: ""; position: absolute; inset: auto 0 0 0; height: 4px;
+      background: linear-gradient(90deg, var(--blue), var(--violet), var(--teal), var(--amber), var(--green));
+      opacity: .9;
     }
     .publication-title { letter-spacing: -0.035em; line-height: 1.08; }
     .eyebrow {
@@ -55,33 +67,44 @@
     }
     .hero-subtitle { max-width: 860px; margin: 1.1rem auto 0; color: #4b5563; line-height: 1.65; }
     .meta-line { color: var(--muted); margin-top: 1rem; font-size: .95rem; }
-    .section-title { margin-bottom: .45rem !important; }
+    .section-title { margin-bottom: .45rem !important; position: relative; display: inline-block; }
+    .section-title::after { content: ""; display: block; width: 56px; height: 3px; margin-top: .45rem; border-radius: 999px; background: linear-gradient(90deg, var(--blue), var(--violet), var(--teal)); }
     .section-kicker { color: var(--muted); max-width: 820px; margin-bottom: 1.8rem; }
     .theme-grid {
       display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem;
     }
     .theme-card {
-      border: 1px solid var(--line); border-radius: 14px; padding: 1.25rem; background: white;
-      box-shadow: 0 4px 20px rgba(17,24,39,.035);
+      position: relative; overflow: hidden; border: 1px solid var(--line); border-radius: 16px; padding: 1.3rem; background: white;
+      box-shadow: 0 8px 28px rgba(23,32,51,.055); transition: transform .18s ease, box-shadow .18s ease;
     }
+    .theme-card:hover { transform: translateY(-2px); box-shadow: 0 12px 34px rgba(23,32,51,.08); }
+    .theme-card::before { content: ""; position:absolute; left:0; top:0; right:0; height:4px; background:var(--card-accent,var(--blue)); }
+    .theme-card:nth-child(1) { --card-accent: var(--blue); background: linear-gradient(180deg, var(--blue-soft), #fff 38%); }
+    .theme-card:nth-child(2) { --card-accent: var(--teal); background: linear-gradient(180deg, var(--teal-soft), #fff 38%); }
+    .theme-card:nth-child(3) { --card-accent: var(--amber); background: linear-gradient(180deg, var(--amber-soft), #fff 38%); }
+    .theme-card:nth-child(4) { --card-accent: var(--green); background: linear-gradient(180deg, var(--green-soft), #fff 38%); }
+    .theme-card:nth-child(5) { --card-accent: var(--rose); background: linear-gradient(180deg, var(--rose-soft), #fff 38%); }
     .theme-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: .55rem; }
     .theme-card p { color: #4b5563; font-size: .92rem; line-height: 1.55; }
     .theme-number {
-      display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px;
-      border-radius: 999px; background: #eef2ff; color: #3730a3; font-weight: 800; font-size: .78rem;
-      margin-bottom: .8rem;
+      display:inline-flex; align-items:center; justify-content:center; width:30px; height:30px; border-radius:999px;
+      background: color-mix(in srgb, var(--card-accent,var(--blue)) 12%, white); color:var(--card-accent,var(--blue));
+      border:1px solid color-mix(in srgb, var(--card-accent,var(--blue)) 24%, white); font-weight:800; font-size:.78rem; margin-bottom:.8rem;
     }
     .status-pill {
-      display: inline-block; margin-top: .8rem; border: 1px solid var(--line); border-radius: 999px;
-      padding: .28rem .6rem; font-size: .75rem; color: #4b5563; background: var(--soft);
+      display:inline-block; margin-top:.8rem; border:1px solid color-mix(in srgb,var(--card-accent,var(--blue)) 22%,white); border-radius:999px;
+      padding:.3rem .62rem; font-size:.75rem; font-weight:650; color:var(--card-accent,var(--blue)); background:color-mix(in srgb,var(--card-accent,var(--blue)) 8%,white);
     }
     .pathway {
       display: flex; flex-wrap: wrap; align-items: center; gap: .65rem; margin-top: 1rem;
     }
-    .path-node {
-      border: 1px solid var(--line); border-radius: 10px; padding: .7rem .9rem; background: white;
-      font-weight: 600; font-size: .86rem;
-    }
+    .path-node { border:1px solid var(--line); border-radius:11px; padding:.72rem .92rem; background:white; font-weight:650; font-size:.86rem; box-shadow:0 3px 12px rgba(23,32,51,.04); }
+    .path-node:nth-of-type(1), .path-node:nth-of-type(2) { border-color:#bfd2ff; background:var(--blue-soft); }
+    .path-node:nth-of-type(3) { border-color:#d7c9ff; background:var(--violet-soft); }
+    .path-node:nth-of-type(4) { border-color:#bde7e3; background:var(--teal-soft); }
+    .path-node:nth-of-type(5) { border-color:#f2d8ae; background:var(--amber-soft); }
+    .path-node:nth-of-type(6) { border-color:#bfe3d5; background:var(--green-soft); }
+    .path-node:nth-of-type(7) { border-color:#f1c7d6; background:var(--rose-soft); }
     .path-arrow { color: #9ca3af; font-weight: 700; }
     .controls {
       display: flex; flex-wrap: wrap; gap: .65rem; align-items: center; margin-bottom: 1rem;
@@ -96,7 +119,12 @@
       border: 1px solid #d1d5db; background: white; border-radius: 999px; padding: .52rem .8rem;
       font-size: .82rem; font-weight: 600; cursor: pointer;
     }
-    .filter-btn.active { background: var(--ink); color: white; border-color: var(--ink); }
+    .filter-btn:hover { border-color:#98a2b3; transform:translateY(-1px); }
+    .filter-btn.active { background:var(--ink); color:white; border-color:var(--ink); }
+    .filter-btn[data-theme="Theme 1"].active { background:var(--blue); border-color:var(--blue); }
+    .filter-btn[data-theme="Theme 2"].active { background:var(--teal); border-color:var(--teal); }
+    .filter-btn[data-theme="Theme 3"].active { background:var(--amber); border-color:var(--amber); }
+    .filter-btn[data-theme="Theme 4"].active { background:var(--green); border-color:var(--green); }
     .table-shell {
       overflow-x: auto; border: 1px solid var(--line); border-radius: 14px; background: white;
     }
@@ -113,21 +141,29 @@
     .survey-table tr:last-child td { border-bottom: 0; }
     .paper-title { font-weight: 700; color: var(--ink); min-width: 280px; }
     .paper-authors { display:block; color: var(--muted); font-weight: 500; margin-top:.2rem; }
-    .tag-theme {
-      display: inline-block; white-space: nowrap; border-radius: 999px; padding: .22rem .55rem;
-      font-size: .72rem; font-weight: 700; background: #eef2ff; color: #3730a3;
-    }
+    .tag-theme { display:inline-block; white-space:nowrap; border-radius:999px; padding:.24rem .58rem; font-size:.72rem; font-weight:750; border:1px solid transparent; }
+    .tag-theme.theme-1 { background:var(--blue-soft); color:#2452b8; border-color:#c8d8ff; }
+    .tag-theme.theme-2 { background:var(--teal-soft); color:#0b6d6f; border-color:#bfe7e3; }
+    .tag-theme.theme-3 { background:var(--amber-soft); color:#9a5a0e; border-color:#f0d5a7; }
+    .tag-theme.theme-4 { background:var(--green-soft); color:#176b56; border-color:#bee1d4; }
+    .tag-theme.theme-5 { background:var(--rose-soft); color:#9f3f62; border-color:#efc6d5; }
+    .tag-theme.bridge { background:var(--violet-soft); color:#6544b5; border-color:#d8ccfb; }
     .status-ok { color: var(--green); font-weight: 700; font-size: .75rem; }
     .scholar-link { font-weight: 700; color: var(--blue); white-space: nowrap; }
     .matrix-note { color: var(--muted); font-size: .82rem; margin-top: .8rem; }
     .stats-row { display:grid; grid-template-columns: repeat(auto-fit,minmax(170px,1fr)); gap:1rem; margin-top:1.25rem; }
-    .stat { border:1px solid var(--line); border-radius:12px; padding:1rem; background:white; }
-    .stat strong { display:block; font-size:1.55rem; letter-spacing:-.03em; }
+    .stat { border:1px solid var(--line); border-radius:13px; padding:1rem; background:white; box-shadow:0 4px 18px rgba(23,32,51,.035); }
+    .stat:nth-child(1) { border-top:3px solid var(--blue); }
+    .stat:nth-child(2) { border-top:3px solid var(--teal); }
+    .stat:nth-child(3) { border-top:3px solid var(--green); }
+    .stat:nth-child(4) { border-top:3px solid var(--violet); }
+    .stat strong { display:block; font-size:1.55rem; letter-spacing:-.03em; color:var(--ink); }
     .stat span { color:var(--muted); font-size:.8rem; }
     .evidence-box {
       border-left: 4px solid var(--blue); background: #f8fafc; border-radius: 0 12px 12px 0;
       padding: 1.1rem 1.25rem; color: #374151; line-height: 1.65;
     }
+    .survey-table tbody tr:hover { background:#fbfcfe; }
     .footer { border-top:1px solid var(--line); background:#fafafa; }
     @media (max-width: 768px) {
       .publication-title { font-size: 2.2rem !important; }
@@ -149,7 +185,7 @@
           <p class="hero-subtitle">
             A living literature map connecting 3D Gaussian Splatting, immersive rendering,
             sparse-view reconstruction, surface geometry, indoor structure, and VR-oriented spatial evaluation.
-            The site supports the literature-review framing developed for Task 04 and will expand as Themes 4 and 5 are reviewed.
+            The site supports the literature-review framing developed for Task 04 and will expand as Theme 5 is reviewed.
           </p>
           <p class="meta-line">
             Sonain Jamil · University of Technology Sydney · Principal Supervisor: Stuart Perry
@@ -177,7 +213,7 @@
       <div class="container is-max-desktop">
         <h2 class="title is-3 section-title">Review scope</h2>
         <p class="section-kicker">
-          The literature is organised around five connected themes. Themes 1–3 are currently populated with papers verified from the full text; Themes 4–5 will be added as the review progresses.
+          The literature is organised around five connected themes. Themes 1–4 are currently populated with papers verified from the full text; Theme 5 will be added as the review progresses.
         </p>
 
         <div class="theme-grid">
@@ -206,7 +242,7 @@
             <div class="theme-number">4</div>
             <h3>Indoor Spatial Structure, Floors &amp; Layouts</h3>
             <p>Methods that recover structured indoor geometry, room layout, floor-related information, and spatial organisation from reconstructed scenes.</p>
-            <span class="status-pill">In progress</span>
+            <span class="status-pill">8 paragraph topics · reviewed</span>
           </article>
 
           <article class="theme-card">
@@ -234,9 +270,9 @@
         </div>
 
         <div class="stats-row">
-          <div class="stat"><strong>23</strong><span>paper records currently mapped</span></div>
-          <div class="stat"><strong>27</strong><span>Task 04 paragraph topics across Themes 1–3</span></div>
-          <div class="stat"><strong>3 / 5</strong><span>themes currently reviewed</span></div>
+          <div class="stat"><strong>33</strong><span>paper records currently mapped</span></div>
+          <div class="stat"><strong>35</strong><span>Task 04 paragraph topics across Themes 1–4</span></div>
+          <div class="stat"><strong>4 / 5</strong><span>themes currently reviewed</span></div>
           <div class="stat"><strong>Full text</strong><span>evidence standard for included claims</span></div>
         </div>
       </div>
@@ -257,6 +293,7 @@
           <button class="filter-btn" data-theme="Theme 1">Theme 1</button>
           <button class="filter-btn" data-theme="Theme 2">Theme 2</button>
           <button class="filter-btn" data-theme="Theme 3">Theme 3</button>
+          <button class="filter-btn" data-theme="Theme 4">Theme 4</button>
         </div>
 
         <div class="table-shell">
@@ -314,7 +351,7 @@
   </footer>
 
   <script>
-    const papers = [{"title": "3D Gaussian Splatting for Real-Time Radiance Field Rendering", "authors": "Kerbl et al.", "year": 2023, "venue": "ACM Transactions on Graphics", "theme": "Theme 1", "focus": "Explicit 3DGS representation and real-time novel-view rendering", "cue": "SfM initialization; anisotropic Gaussians", "output": "3D Gaussian scene", "setting": "General scenes", "status": "Verified from full paper"}, {"title": "VR-Splatting: Foveated Radiance Field Rendering via 3D Gaussian Splatting and Neural Points", "authors": "Franke et al.", "year": 2025, "venue": "PACMCGIT", "theme": "Theme 1", "focus": "VR rendering budget and foveated rendering", "cue": "Eye tracking; foveated hybrid rendering", "output": "VR rendering", "setting": "Head-mounted display", "status": "Verified from full paper"}, {"title": "VRSplat: Fast and Robust Gaussian Splatting for Virtual Reality", "authors": "Tu et al.", "year": 2025, "venue": "PACMCGIT", "theme": "Theme 1", "focus": "View-consistent, robust Gaussian rendering for VR", "cue": "View-consistent sorting; projection improvements; foveation", "output": "VR rendering", "setting": "Head-mounted display", "status": "Verified from full paper"}, {"title": "VR-GS: A Physical Dynamics-Aware Interactive Gaussian Splatting System in Virtual Reality", "authors": "Jiang et al.", "year": 2024, "venue": "ACM graphics / VR system paper", "theme": "Theme 1", "focus": "Interactive and physics-aware Gaussian scenes", "cue": "Tetrahedral simulation proxy; XPBD; collision", "output": "3DGS + simulation geometry", "setting": "Interactive VR", "status": "Verified from full paper"}, {"title": "FSGS: Real-Time Few-shot View Synthesis using Gaussian Splatting", "authors": "Zhu et al.", "year": 2024, "venue": "ECCV", "theme": "Theme 2", "focus": "Few-shot Gaussian reconstruction", "cue": "Gaussian unpooling; virtual views; geometric regularisation", "output": "3D Gaussian scene", "setting": "Sparse views", "status": "Verified from full paper"}, {"title": "DNGaussian: Optimizing Sparse-View 3D Gaussian Radiance Fields with Global-Local Depth Normalization", "authors": "Li et al.", "year": 2024, "venue": "CVPR", "theme": "Theme 2", "focus": "Depth-regularised sparse-view 3DGS", "cue": "Monocular depth; global-local normalisation", "output": "3D Gaussian scene", "setting": "Sparse views", "status": "Verified from full paper"}, {"title": "MVPGS: Excavating Multi-view Priors for Gaussian Splatting from Sparse Input Views", "authors": "Xu et al.", "year": 2024, "venue": "ECCV", "theme": "Theme 2", "focus": "Multi-view priors for few-shot reconstruction", "cue": "MVS initialization; warping; depth ordering", "output": "3D Gaussian scene", "setting": "Sparse views", "status": "Verified from full paper"}, {"title": "NexusGS: Sparse View Synthesis with Epipolar Depth Priors in 3D Gaussian Splatting", "authors": "Zheng et al.", "year": 2025, "venue": "CVPR", "theme": "Theme 2", "focus": "Epipolar depth priors for sparse views", "cue": "Optical flow; camera poses; epipolar depth", "output": "3D Gaussian scene", "setting": "Sparse views", "status": "Verified from full paper"}, {"title": "CoR-GS: Sparse-View 3D Gaussian Splatting via Co-Regularization", "authors": "Zhang et al.", "year": 2024, "venue": "ECCV", "theme": "Theme 2", "focus": "Prior-free co-regularisation", "cue": "Point disagreement; rendering disagreement; co-pruning", "output": "3D Gaussian scene", "setting": "Sparse views", "status": "Verified from full paper"}, {"title": "DropoutGS: Dropping Out Gaussians for Better Sparse-view Rendering", "authors": "Xu et al.", "year": 2025, "venue": "CVPR", "theme": "Theme 2", "focus": "Regularisation by Gaussian dropout", "cue": "Random dropout; edge-guided splitting", "output": "3D Gaussian scene", "setting": "Sparse views", "status": "Verified from full paper"}, {"title": "DropGaussian: Structural Regularization for Sparse-view Gaussian Splatting", "authors": "Park et al.", "year": 2025, "venue": "CVPR", "theme": "Theme 2", "focus": "Structural regularisation without external priors", "cue": "Progressive Gaussian removal", "output": "3D Gaussian scene", "setting": "Sparse views", "status": "Verified from full paper"}, {"title": "Sparse-Splatter: Multi-Cue Geometric Regularization for Sparse-View 3D Gaussian Splatting", "authors": "Jiang et al.", "year": 2026, "venue": "Computers & Graphics", "theme": "Theme 2", "focus": "Multi-cue geometric regularisation", "cue": "MVS initialization; depth; normals; primitive constraints", "output": "3D Gaussian scene", "setting": "Extremely sparse views", "status": "Verified from full paper"}, {"title": "GDoFS: Gaussian DoF Separation for Plausible 3D Geometry in Sparse-View 3DGS", "authors": "Kim et al.", "year": 2026, "venue": "WACV", "theme": "Theme 2", "focus": "Preventing photometric optimisation from degrading geometry", "cue": "Separated positional DoFs; bounded offsets; visibility loss", "output": "3D Gaussian scene", "setting": "Sparse views", "status": "Verified from full paper"}, {"title": "StereoGS: Sparse-View 3D Gaussian Splatting via Stereo Priors", "authors": "Yuan et al.", "year": 2026, "venue": "arXiv", "theme": "Theme 2", "focus": "Stereo priors for sparse-view reconstruction", "cue": "Virtual stereo pairs; stereo depth; consistency", "output": "3D Gaussian scene", "setting": "Sparse views", "status": "Verified from full paper"}, {"title": "SparseSurf: Sparse-View 3D Gaussian Splatting for Surface Reconstruction", "authors": "Gu et al.", "year": 2026, "venue": "AAAI", "theme": "Theme 2 / 3", "focus": "Sparse-view surface reconstruction and NVS", "cue": "Stereo geometry-texture alignment; feature consistency", "output": "3DGS + surface reconstruction", "setting": "Sparse views", "status": "Verified from full paper"}, {"title": "CODN-GS: Coupled Optimization of Depth and Normal in 3D Gaussian Splatting for Scene Reconstruction", "authors": "Hu et al.", "year": 2025, "venue": "IEEE TASE", "theme": "Theme 3", "focus": "Joint depth-normal optimisation for geometric consistency", "cue": "Depth and normal supervision", "output": "Geometrically constrained 3DGS", "setting": "Scene reconstruction", "status": "Verified from full paper"}, {"title": "SMDGS: Scale-Aligned Monocular Depth-Guided 3D Gaussian Splatting for Rendering and Surface Reconstruction", "authors": "Wei et al.", "year": 2026, "venue": "IEEE TVCG", "theme": "Theme 3", "focus": "Rendering and surface reconstruction", "cue": "Scale-aligned depth; normals; multi-view consistency", "output": "3DGS + surface reconstruction", "setting": "Indoor / outdoor / object scenes", "status": "Verified from full paper"}, {"title": "Photometric Regularization for 3D Gaussian Splatting in Multi-View Surface Projection", "authors": "Ju et al.", "year": 2025, "venue": "IEEE JSTSP", "theme": "Theme 3", "focus": "Surface-aware Gaussian projection", "cue": "Photometric stereo normals; occlusion handling", "output": "Surface-aware Gaussian projection", "setting": "Multi-view photometric stereo", "status": "Verified from full paper"}, {"title": "SurfaceSplat: Connecting Surface Reconstruction and Gaussian Splatting", "authors": "Gao et al.", "year": 2025, "venue": "ICCV", "theme": "Theme 3", "focus": "Hybrid SDF and Gaussian surface reconstruction", "cue": "SDF + 3DGS mutual refinement", "output": "Mesh + 3DGS", "setting": "Sparse views", "status": "Verified from full paper"}, {"title": "3DGSR: Implicit Surface Reconstruction with 3D Gaussian Splatting", "authors": "Lyu et al.", "year": 2024, "venue": "ACM Transactions on Graphics", "theme": "Theme 3", "focus": "Implicit surface reconstruction with Gaussian guidance", "cue": "Joint SDF and Gaussian optimisation", "output": "Implicit surface / mesh + 3DGS", "setting": "Multi-view reconstruction", "status": "Verified from full paper"}, {"title": "GS2Mesh: Surface Reconstruction from Gaussian Splatting via Novel Stereo Views", "authors": "Wolf et al.", "year": 2024, "venue": "ECCV", "theme": "Theme 3", "focus": "Mesh extraction from Gaussian scenes", "cue": "Novel stereo views; stereo depth; TSDF fusion", "output": "Triangulated mesh", "setting": "Dense / general multi-view", "status": "Verified from full paper"}, {"title": "Neural Texture Splatting: Expressive 3D Gaussian Splatting for View Synthesis, Geometry, and Dynamic Reconstruction", "authors": "Wang et al.", "year": 2025, "venue": "SIGGRAPH Asia", "theme": "Theme 3", "focus": "Appearance modelling and geometry reconstruction", "cue": "Shared neural texture fields", "output": "Enhanced 3DGS", "setting": "Dense and sparse inputs", "status": "Verified from full paper"}, {"title": "FreeSplat++: Generalizable 3D Gaussian Splatting for Efficient Indoor Scene Reconstruction", "authors": "Wang et al.", "year": 2026, "venue": "IEEE TPAMI", "theme": "Theme 3 / 4", "focus": "Whole-scene indoor reconstruction", "cue": "Cross-view aggregation; fusion; floater removal; depth regularisation", "output": "Whole-scene 3DGS", "setting": "Indoor whole scenes", "status": "Verified from full paper"}];
+    const papers = [{"title": "3D Gaussian Splatting for Real-Time Radiance Field Rendering", "authors": "Kerbl et al.", "year": 2023, "venue": "ACM Transactions on Graphics", "theme": "Theme 1", "focus": "Explicit 3DGS representation and real-time novel-view rendering", "cue": "SfM initialization; anisotropic Gaussians", "output": "3D Gaussian scene", "setting": "General scenes", "status": "Verified from full paper"}, {"title": "VR-Splatting: Foveated Radiance Field Rendering via 3D Gaussian Splatting and Neural Points", "authors": "Franke et al.", "year": 2025, "venue": "PACMCGIT", "theme": "Theme 1", "focus": "VR rendering budget and foveated rendering", "cue": "Eye tracking; foveated hybrid rendering", "output": "VR rendering", "setting": "Head-mounted display", "status": "Verified from full paper"}, {"title": "VRSplat: Fast and Robust Gaussian Splatting for Virtual Reality", "authors": "Tu et al.", "year": 2025, "venue": "PACMCGIT", "theme": "Theme 1", "focus": "View-consistent, robust Gaussian rendering for VR", "cue": "View-consistent sorting; projection improvements; foveation", "output": "VR rendering", "setting": "Head-mounted display", "status": "Verified from full paper"}, {"title": "VR-GS: A Physical Dynamics-Aware Interactive Gaussian Splatting System in Virtual Reality", "authors": "Jiang et al.", "year": 2024, "venue": "ACM graphics / VR system paper", "theme": "Theme 1", "focus": "Interactive and physics-aware Gaussian scenes", "cue": "Tetrahedral simulation proxy; XPBD; collision", "output": "3DGS + simulation geometry", "setting": "Interactive VR", "status": "Verified from full paper"}, {"title": "FSGS: Real-Time Few-shot View Synthesis using Gaussian Splatting", "authors": "Zhu et al.", "year": 2024, "venue": "ECCV", "theme": "Theme 2", "focus": "Few-shot Gaussian reconstruction", "cue": "Gaussian unpooling; virtual views; geometric regularisation", "output": "3D Gaussian scene", "setting": "Sparse views", "status": "Verified from full paper"}, {"title": "DNGaussian: Optimizing Sparse-View 3D Gaussian Radiance Fields with Global-Local Depth Normalization", "authors": "Li et al.", "year": 2024, "venue": "CVPR", "theme": "Theme 2", "focus": "Depth-regularised sparse-view 3DGS", "cue": "Monocular depth; global-local normalisation", "output": "3D Gaussian scene", "setting": "Sparse views", "status": "Verified from full paper"}, {"title": "MVPGS: Excavating Multi-view Priors for Gaussian Splatting from Sparse Input Views", "authors": "Xu et al.", "year": 2024, "venue": "ECCV", "theme": "Theme 2", "focus": "Multi-view priors for few-shot reconstruction", "cue": "MVS initialization; warping; depth ordering", "output": "3D Gaussian scene", "setting": "Sparse views", "status": "Verified from full paper"}, {"title": "NexusGS: Sparse View Synthesis with Epipolar Depth Priors in 3D Gaussian Splatting", "authors": "Zheng et al.", "year": 2025, "venue": "CVPR", "theme": "Theme 2", "focus": "Epipolar depth priors for sparse views", "cue": "Optical flow; camera poses; epipolar depth", "output": "3D Gaussian scene", "setting": "Sparse views", "status": "Verified from full paper"}, {"title": "CoR-GS: Sparse-View 3D Gaussian Splatting via Co-Regularization", "authors": "Zhang et al.", "year": 2024, "venue": "ECCV", "theme": "Theme 2", "focus": "Prior-free co-regularisation", "cue": "Point disagreement; rendering disagreement; co-pruning", "output": "3D Gaussian scene", "setting": "Sparse views", "status": "Verified from full paper"}, {"title": "DropoutGS: Dropping Out Gaussians for Better Sparse-view Rendering", "authors": "Xu et al.", "year": 2025, "venue": "CVPR", "theme": "Theme 2", "focus": "Regularisation by Gaussian dropout", "cue": "Random dropout; edge-guided splitting", "output": "3D Gaussian scene", "setting": "Sparse views", "status": "Verified from full paper"}, {"title": "DropGaussian: Structural Regularization for Sparse-view Gaussian Splatting", "authors": "Park et al.", "year": 2025, "venue": "CVPR", "theme": "Theme 2", "focus": "Structural regularisation without external priors", "cue": "Progressive Gaussian removal", "output": "3D Gaussian scene", "setting": "Sparse views", "status": "Verified from full paper"}, {"title": "Sparse-Splatter: Multi-Cue Geometric Regularization for Sparse-View 3D Gaussian Splatting", "authors": "Jiang et al.", "year": 2026, "venue": "Computers & Graphics", "theme": "Theme 2", "focus": "Multi-cue geometric regularisation", "cue": "MVS initialization; depth; normals; primitive constraints", "output": "3D Gaussian scene", "setting": "Extremely sparse views", "status": "Verified from full paper"}, {"title": "GDoFS: Gaussian DoF Separation for Plausible 3D Geometry in Sparse-View 3DGS", "authors": "Kim et al.", "year": 2026, "venue": "WACV", "theme": "Theme 2", "focus": "Preventing photometric optimisation from degrading geometry", "cue": "Separated positional DoFs; bounded offsets; visibility loss", "output": "3D Gaussian scene", "setting": "Sparse views", "status": "Verified from full paper"}, {"title": "StereoGS: Sparse-View 3D Gaussian Splatting via Stereo Priors", "authors": "Yuan et al.", "year": 2026, "venue": "arXiv", "theme": "Theme 2", "focus": "Stereo priors for sparse-view reconstruction", "cue": "Virtual stereo pairs; stereo depth; consistency", "output": "3D Gaussian scene", "setting": "Sparse views", "status": "Verified from full paper"}, {"title": "SparseSurf: Sparse-View 3D Gaussian Splatting for Surface Reconstruction", "authors": "Gu et al.", "year": 2026, "venue": "AAAI", "theme": "Theme 2 / 3", "focus": "Sparse-view surface reconstruction and NVS", "cue": "Stereo geometry-texture alignment; feature consistency", "output": "3DGS + surface reconstruction", "setting": "Sparse views", "status": "Verified from full paper"}, {"title": "CODN-GS: Coupled Optimization of Depth and Normal in 3D Gaussian Splatting for Scene Reconstruction", "authors": "Hu et al.", "year": 2025, "venue": "IEEE TASE", "theme": "Theme 3", "focus": "Joint depth-normal optimisation for geometric consistency", "cue": "Depth and normal supervision", "output": "Geometrically constrained 3DGS", "setting": "Scene reconstruction", "status": "Verified from full paper"}, {"title": "SMDGS: Scale-Aligned Monocular Depth-Guided 3D Gaussian Splatting for Rendering and Surface Reconstruction", "authors": "Wei et al.", "year": 2026, "venue": "IEEE TVCG", "theme": "Theme 3", "focus": "Rendering and surface reconstruction", "cue": "Scale-aligned depth; normals; multi-view consistency", "output": "3DGS + surface reconstruction", "setting": "Indoor / outdoor / object scenes", "status": "Verified from full paper"}, {"title": "Photometric Regularization for 3D Gaussian Splatting in Multi-View Surface Projection", "authors": "Ju et al.", "year": 2025, "venue": "IEEE JSTSP", "theme": "Theme 3", "focus": "Surface-aware Gaussian projection", "cue": "Photometric stereo normals; occlusion handling", "output": "Surface-aware Gaussian projection", "setting": "Multi-view photometric stereo", "status": "Verified from full paper"}, {"title": "SurfaceSplat: Connecting Surface Reconstruction and Gaussian Splatting", "authors": "Gao et al.", "year": 2025, "venue": "ICCV", "theme": "Theme 3", "focus": "Hybrid SDF and Gaussian surface reconstruction", "cue": "SDF + 3DGS mutual refinement", "output": "Mesh + 3DGS", "setting": "Sparse views", "status": "Verified from full paper"}, {"title": "3DGSR: Implicit Surface Reconstruction with 3D Gaussian Splatting", "authors": "Lyu et al.", "year": 2024, "venue": "ACM Transactions on Graphics", "theme": "Theme 3", "focus": "Implicit surface reconstruction with Gaussian guidance", "cue": "Joint SDF and Gaussian optimisation", "output": "Implicit surface / mesh + 3DGS", "setting": "Multi-view reconstruction", "status": "Verified from full paper"}, {"title": "GS2Mesh: Surface Reconstruction from Gaussian Splatting via Novel Stereo Views", "authors": "Wolf et al.", "year": 2024, "venue": "ECCV", "theme": "Theme 3", "focus": "Mesh extraction from Gaussian scenes", "cue": "Novel stereo views; stereo depth; TSDF fusion", "output": "Triangulated mesh", "setting": "Dense / general multi-view", "status": "Verified from full paper"}, {"title": "Neural Texture Splatting: Expressive 3D Gaussian Splatting for View Synthesis, Geometry, and Dynamic Reconstruction", "authors": "Wang et al.", "year": 2025, "venue": "SIGGRAPH Asia", "theme": "Theme 3", "focus": "Appearance modelling and geometry reconstruction", "cue": "Shared neural texture fields", "output": "Enhanced 3DGS", "setting": "Dense and sparse inputs", "status": "Verified from full paper"}, {"title": "FreeSplat++: Generalizable 3D Gaussian Splatting for Efficient Indoor Scene Reconstruction", "authors": "Wang et al.", "year": 2026, "venue": "IEEE TPAMI", "theme": "Theme 3 / 4", "focus": "Whole-scene indoor reconstruction", "cue": "Cross-view aggregation; fusion; floater removal; depth regularisation", "output": "Whole-scene 3DGS", "setting": "Indoor whole scenes", "status": "Verified from full paper"}, {"title": "360-GS: Layout-guided Panoramic Gaussian Splatting For Indoor Roaming", "authors": "Bai et al.", "year": 2025, "venue": "3DV", "theme": "Theme 4", "focus": "Layout-guided sparse panoramic 3DGS for indoor roaming", "cue": "Room-layout priors; panoramic depth; planar regularisation", "output": "Indoor 3DGS + room-aware geometry", "setting": "Sparse indoor panoramas", "status": "Verified from full paper"}, {"title": "PlaneFusion: Real-Time Indoor Scene Reconstruction With Planar Prior", "authors": "Gong et al.", "year": 2022, "venue": "IEEE TVCG", "theme": "Theme 4", "focus": "Planar-prior indoor reconstruction and mapping", "cue": "Plane detection; planar landmarks; plane-aware mapping", "output": "Dense indoor map / mesh", "setting": "RGB-D indoor scenes", "status": "Verified from full paper"}, {"title": "FloorNet: A Unified Framework for Floorplan Reconstruction from 3D Scans", "authors": "Liu et al.", "year": 2018, "venue": "ECCV", "theme": "Theme 4", "focus": "Floorplan reconstruction from large indoor RGB-D scans", "cue": "3D points; top-down density map; RGB feature fusion", "output": "Vectorised floorplan", "setting": "Residential RGB-D scans", "status": "Verified from full paper"}, {"title": "PolyRoom: Room-aware Transformer for Floorplan Reconstruction", "authors": "Liu et al.", "year": 2024, "venue": "ECCV", "theme": "Theme 4", "focus": "Room-aware structured floorplan reconstruction", "cue": "Uniform sampling; room-aware initialization; self-attention", "output": "Vectorised room polygons / floorplan", "setting": "Point-cloud-derived density maps", "status": "Verified from full paper"}, {"title": "NadirFloorNet: Reconstructing Multi-Room Floorplans from a Small Set of Registered Panoramic Images", "authors": "Pintore et al.", "year": 2025, "venue": "CVPR Workshops", "theme": "Theme 4", "focus": "Multi-room floorplans from minimal panoramic observations", "cue": "Disoccluded floor area; Nadir shapes; floor-ceiling height; transformer fusion", "output": "2D/3D multi-room floorplan", "setting": "Minimal registered indoor panoramas", "status": "Verified from full paper"}, {"title": "AGS-Mesh: Adaptive Gaussian Splatting and Meshing with Geometric Priors for Indoor Room Reconstruction Using Smartphones", "authors": "Ren et al.", "year": 2025, "venue": "3DV", "theme": "Theme 3 / 4", "focus": "Room-scale Gaussian reconstruction and meshing from mobile capture", "cue": "Sensor depth; monocular normals; adaptive filtering; TSDF/IsoOctree", "output": "Indoor 3DGS + mesh", "setting": "Smartphone-captured rooms", "status": "Verified from full paper"}, {"title": "IndoorGS: Geometric Cues Guided Gaussian Splatting for Indoor Scene Reconstruction", "authors": "Ruan et al.", "year": 2025, "venue": "CVPR", "theme": "Theme 4", "focus": "Geometry-aware 3DGS for weakly textured indoor scenes", "cue": "3D lines; SfM cues; plane-like cues; adaptive density control", "output": "Indoor 3DGS + extracted geometry", "setting": "Indoor scenes", "status": "Verified from full paper"}, {"title": "Floorplan Generation from Noisy Point Cloud", "authors": "Talotta et al.", "year": 2023, "venue": "ACM GeoIndustry", "theme": "Theme 4", "focus": "Robust floorplan generation from noisy real point clouds", "cue": "Density maps; synthetic-to-real training; room detection", "output": "2D floorplan", "setting": "Noisy LiDAR / real indoor scans", "status": "Verified from full paper"}, {"title": "FRI-Net: Floorplan Reconstruction via Room-wise Implicit Representation", "authors": "Xu et al.", "year": 2024, "venue": "ECCV", "theme": "Theme 4", "focus": "Global room-shape reconstruction with structural regularisation", "cue": "Room-wise implicit representation; hyper-lines; geometric priors", "output": "Vectorised room polygons / floorplan", "setting": "Point-cloud-derived floorplans", "status": "Verified from full paper"}, {"title": "Connecting the Dots: Floorplan Reconstruction Using Two-Level Queries", "authors": "Yue et al.", "year": 2023, "venue": "CVPR", "theme": "Theme 4", "focus": "End-to-end structured floorplan reconstruction", "cue": "Two-level room/corner queries; polygon matching", "output": "Room polygons + optional doors/windows/semantics", "setting": "Indoor point clouds / density maps", "status": "Verified from full paper"}];
     let activeTheme = "All";
 
     function scholarUrl(title) {
@@ -324,6 +361,16 @@
     function themeMatches(paper, selected) {
       if (selected === "All") return true;
       return paper.theme.includes(selected);
+    }
+
+    function themeClass(theme) {
+      if (theme.includes("/")) return "bridge";
+      if (theme.includes("Theme 1")) return "theme-1";
+      if (theme.includes("Theme 2")) return "theme-2";
+      if (theme.includes("Theme 3")) return "theme-3";
+      if (theme.includes("Theme 4")) return "theme-4";
+      if (theme.includes("Theme 5")) return "theme-5";
+      return "";
     }
 
     function renderPapers() {
@@ -344,7 +391,7 @@
           <td class="paper-title">${p.title}<span class="paper-authors">${p.authors}</span></td>
           <td>${p.year}</td>
           <td>${p.venue}</td>
-          <td><span class="tag-theme">${p.theme}</span></td>
+          <td><span class="tag-theme ${themeClass(p.theme)}">${p.theme}</span></td>
           <td>${p.focus}</td>
           <td>${p.cue}</td>
           <td>${p.output}</td>
