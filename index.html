@@ -3,518 +3,372 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  
-  <!-- Primary Meta Tags -->
-  <!-- TODO: Replace with your paper title and author names -->
-  <meta name="title" content="PAPER_TITLE - AUTHOR_NAMES">
-  <!-- TODO: Write a compelling 150-160 character description of your research -->
-  <meta name="description" content="BRIEF_DESCRIPTION_OF_YOUR_RESEARCH_CONTRIBUTION_AND_FINDINGS">
-  <!-- TODO: Add 5-10 relevant keywords for your research area -->
-  <meta name="keywords" content="KEYWORD1, KEYWORD2, KEYWORD3, machine learning, computer vision, AI">
-  <!-- TODO: List all authors -->
-  <meta name="author" content="FIRST_AUTHOR_NAME, SECOND_AUTHOR_NAME">
+
+  <meta name="title" content="3DGS for Interactive VR — Literature Map">
+  <meta name="description" content="A living literature map of 3D Gaussian Splatting research spanning immersive rendering, sparse-view reconstruction, geometry, indoor structure and VR spatial reliability.">
+  <meta name="keywords" content="3D Gaussian Splatting, 3DGS, virtual reality, sparse-view reconstruction, surface reconstruction, indoor reconstruction, VR navigation">
+  <meta name="author" content="Sonain Jamil">
   <meta name="robots" content="index, follow">
   <meta name="language" content="English">
-  
-  <!-- Open Graph / Facebook -->
-  <meta property="og:type" content="article">
-  <!-- TODO: Replace with your institution or lab name -->
-  <meta property="og:site_name" content="INSTITUTION_OR_LAB_NAME">
-  <!-- TODO: Same as paper title above -->
-  <meta property="og:title" content="PAPER_TITLE">
-  <!-- TODO: Same as description above -->
-  <meta property="og:description" content="BRIEF_DESCRIPTION_OF_YOUR_RESEARCH_CONTRIBUTION_AND_FINDINGS">
-  <!-- TODO: Replace with your actual website URL -->
-  <meta property="og:url" content="https://YOUR_DOMAIN.com/YOUR_PROJECT_PAGE">
-  <!-- TODO: Create a 1200x630px preview image and update path -->
-  <meta property="og:image" content="https://YOUR_DOMAIN.com/static/images/social_preview.png">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="PAPER_TITLE - Research Preview">
-  <meta property="article:published_time" content="2024-01-01T00:00:00.000Z">
-  <meta property="article:author" content="FIRST_AUTHOR_NAME">
-  <meta property="article:section" content="Research">
-  <meta property="article:tag" content="KEYWORD1">
-  <meta property="article:tag" content="KEYWORD2">
 
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image">
-  <!-- TODO: Replace with your lab/institution Twitter handle -->
-  <meta name="twitter:site" content="@YOUR_TWITTER_HANDLE">
-  <!-- TODO: Replace with first author's Twitter handle -->
-  <meta name="twitter:creator" content="@AUTHOR_TWITTER_HANDLE">
-  <!-- TODO: Same as paper title above -->
-  <meta name="twitter:title" content="PAPER_TITLE">
-  <!-- TODO: Same as description above -->
-  <meta name="twitter:description" content="BRIEF_DESCRIPTION_OF_YOUR_RESEARCH_CONTRIBUTION_AND_FINDINGS">
-  <!-- TODO: Same as social preview image above -->
-  <meta name="twitter:image" content="https://YOUR_DOMAIN.com/static/images/social_preview.png">
-  <meta name="twitter:image:alt" content="PAPER_TITLE - Research Preview">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="UTS Interactive 3D Reconstruction">
+  <meta property="og:title" content="3DGS for Interactive VR — Literature Map">
+  <meta property="og:description" content="Interactive literature map for 3DGS, sparse-view reconstruction, geometry and VR-oriented spatial reconstruction.">
+  <meta property="og:url" content="https://sonainjameel.github.io/3dgs-vr-literature/">
 
-  <!-- Academic/Research Specific -->
-  <meta name="citation_title" content="PAPER_TITLE">
-  <meta name="citation_author" content="FIRST_AUTHOR_LAST, FIRST_AUTHOR_FIRST">
-  <meta name="citation_author" content="SECOND_AUTHOR_LAST, SECOND_AUTHOR_FIRST">
-  <meta name="citation_publication_date" content="2024">
-  <meta name="citation_conference_title" content="CONFERENCE_NAME">
-  <meta name="citation_pdf_url" content="https://YOUR_DOMAIN.com/static/pdfs/paper.pdf">
-  
-  <!-- Additional SEO -->
-  <meta name="theme-color" content="#2563eb">
-  <meta name="msapplication-TileColor" content="#2563eb">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="default">
-  
-  <!-- Preconnect for performance -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preconnect" href="https://ajax.googleapis.com">
-  <link rel="preconnect" href="https://documentcloud.adobe.com">
-  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="3DGS for Interactive VR — Literature Map">
+  <meta name="twitter:description" content="Interactive literature map for 3D Gaussian Splatting and VR-oriented reconstruction research.">
 
+  <meta name="theme-color" content="#111827">
+  <title>3DGS for Interactive VR — Literature Map</title>
 
-  <!-- TODO: Replace with your paper title and authors -->
-  <title>PAPER_TITLE - AUTHOR_NAMES | Academic Research</title>
-  
-  <!-- Favicon and App Icons -->
   <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
-  <link rel="apple-touch-icon" href="static/images/favicon.ico">
-  
-  <!-- Critical CSS - Load synchronously -->
   <link rel="stylesheet" href="static/css/bulma.min.css">
   <link rel="stylesheet" href="static/css/index.css">
-  
-  <!-- Non-critical CSS - Load asynchronously -->
-  <link rel="preload" href="static/css/bulma-carousel.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <link rel="preload" href="static/css/bulma-slider.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <link rel="preload" href="static/css/fontawesome.all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <link rel="preload" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  
-  <!-- Fallback for browsers that don't support preload -->
-  <noscript>
-    <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
-    <link rel="stylesheet" href="static/css/bulma-slider.min.css">
-    <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
-  </noscript>
-  
-  <!-- Fonts - Optimized loading -->
+  <noscript><link rel="stylesheet" href="static/css/fontawesome.all.min.css"></noscript>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  
-  <!-- Defer non-critical JavaScript -->
-  <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script defer src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
-  <script defer src="static/js/fontawesome.all.min.js"></script>
-  <script defer src="static/js/bulma-carousel.min.js"></script>
-  <script defer src="static/js/bulma-slider.min.js"></script>
-  <script defer src="static/js/index.js"></script>
-  
-  <!-- Structured Data for Academic Papers -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "ScholarlyArticle",
-    "headline": "PAPER_TITLE",
-    "description": "BRIEF_DESCRIPTION_OF_YOUR_RESEARCH_CONTRIBUTION_AND_FINDINGS",
-    "author": [
-      {
-        "@type": "Person",
-        "name": "FIRST_AUTHOR_NAME",
-        "affiliation": {
-          "@type": "Organization",
-          "name": "INSTITUTION_NAME"
-        }
-      },
-      {
-        "@type": "Person",
-        "name": "SECOND_AUTHOR_NAME",
-        "affiliation": {
-          "@type": "Organization",
-          "name": "INSTITUTION_NAME"
-        }
-      }
-    ],
-    "datePublished": "2024-01-01",
-    "publisher": {
-      "@type": "Organization",
-      "name": "CONFERENCE_OR_JOURNAL_NAME"
-    },
-    "url": "https://YOUR_DOMAIN.com/YOUR_PROJECT_PAGE",
-    "image": "https://YOUR_DOMAIN.com/static/images/social_preview.png",
-    "keywords": ["KEYWORD1", "KEYWORD2", "KEYWORD3", "machine learning", "computer vision"],
-    "abstract": "FULL_ABSTRACT_TEXT_HERE",
-    "citation": "BIBTEX_CITATION_HERE",
-    "isAccessibleForFree": true,
-    "license": "https://creativecommons.org/licenses/by/4.0/",
-    "mainEntity": {
-      "@type": "WebPage",
-      "@id": "https://YOUR_DOMAIN.com/YOUR_PROJECT_PAGE"
-    },
-    "about": [
-      {
-        "@type": "Thing",
-        "name": "RESEARCH_AREA_1"
-      },
-      {
-        "@type": "Thing", 
-        "name": "RESEARCH_AREA_2"
-      }
-    ]
-  }
-  </script>
-  
-  <!-- Website/Organization Structured Data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "INSTITUTION_OR_LAB_NAME",
-    "url": "https://YOUR_INSTITUTION_WEBSITE.com",
-    "logo": "https://YOUR_DOMAIN.com/static/images/favicon.ico",
-    "sameAs": [
-      "https://twitter.com/YOUR_TWITTER_HANDLE",
-      "https://github.com/YOUR_GITHUB_USERNAME"
-    ]
-  }
-  </script>
+
+  <style>
+    :root {
+      --ink: #111827;
+      --muted: #6b7280;
+      --line: #e5e7eb;
+      --soft: #f8fafc;
+      --blue: #2563eb;
+      --green: #0f766e;
+      --amber: #a16207;
+      --violet: #7c3aed;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; color: var(--ink); background: #fff; }
+    .hero.is-literature {
+      background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+      border-bottom: 1px solid var(--line);
+    }
+    .publication-title { letter-spacing: -0.035em; line-height: 1.08; }
+    .eyebrow {
+      display: inline-block; font-size: .78rem; font-weight: 700; letter-spacing: .08em;
+      text-transform: uppercase; color: var(--blue); margin-bottom: .8rem;
+    }
+    .hero-subtitle { max-width: 860px; margin: 1.1rem auto 0; color: #4b5563; line-height: 1.65; }
+    .meta-line { color: var(--muted); margin-top: 1rem; font-size: .95rem; }
+    .section-title { margin-bottom: .45rem !important; }
+    .section-kicker { color: var(--muted); max-width: 820px; margin-bottom: 1.8rem; }
+    .theme-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem;
+    }
+    .theme-card {
+      border: 1px solid var(--line); border-radius: 14px; padding: 1.25rem; background: white;
+      box-shadow: 0 4px 20px rgba(17,24,39,.035);
+    }
+    .theme-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: .55rem; }
+    .theme-card p { color: #4b5563; font-size: .92rem; line-height: 1.55; }
+    .theme-number {
+      display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px;
+      border-radius: 999px; background: #eef2ff; color: #3730a3; font-weight: 800; font-size: .78rem;
+      margin-bottom: .8rem;
+    }
+    .status-pill {
+      display: inline-block; margin-top: .8rem; border: 1px solid var(--line); border-radius: 999px;
+      padding: .28rem .6rem; font-size: .75rem; color: #4b5563; background: var(--soft);
+    }
+    .pathway {
+      display: flex; flex-wrap: wrap; align-items: center; gap: .65rem; margin-top: 1rem;
+    }
+    .path-node {
+      border: 1px solid var(--line); border-radius: 10px; padding: .7rem .9rem; background: white;
+      font-weight: 600; font-size: .86rem;
+    }
+    .path-arrow { color: #9ca3af; font-weight: 700; }
+    .controls {
+      display: flex; flex-wrap: wrap; gap: .65rem; align-items: center; margin-bottom: 1rem;
+    }
+    .search-wrap { flex: 1 1 320px; }
+    .search-input {
+      width: 100%; border: 1px solid #d1d5db; border-radius: 9px; padding: .7rem .85rem;
+      font: inherit; outline: none;
+    }
+    .search-input:focus { border-color: #93c5fd; box-shadow: 0 0 0 3px rgba(37,99,235,.08); }
+    .filter-btn {
+      border: 1px solid #d1d5db; background: white; border-radius: 999px; padding: .52rem .8rem;
+      font-size: .82rem; font-weight: 600; cursor: pointer;
+    }
+    .filter-btn.active { background: var(--ink); color: white; border-color: var(--ink); }
+    .table-shell {
+      overflow-x: auto; border: 1px solid var(--line); border-radius: 14px; background: white;
+    }
+    .survey-table { width: 100%; border-collapse: collapse; min-width: 1240px; }
+    .survey-table th {
+      text-align: left; padding: .8rem .8rem; font-size: .75rem; text-transform: uppercase;
+      letter-spacing: .045em; color: #6b7280; background: #f9fafb; border-bottom: 1px solid var(--line);
+      position: sticky; top: 0; z-index: 1;
+    }
+    .survey-table td {
+      vertical-align: top; padding: .85rem .8rem; border-bottom: 1px solid #f0f2f5;
+      font-size: .84rem; line-height: 1.45;
+    }
+    .survey-table tr:last-child td { border-bottom: 0; }
+    .paper-title { font-weight: 700; color: var(--ink); min-width: 280px; }
+    .paper-authors { display:block; color: var(--muted); font-weight: 500; margin-top:.2rem; }
+    .tag-theme {
+      display: inline-block; white-space: nowrap; border-radius: 999px; padding: .22rem .55rem;
+      font-size: .72rem; font-weight: 700; background: #eef2ff; color: #3730a3;
+    }
+    .status-ok { color: var(--green); font-weight: 700; font-size: .75rem; }
+    .scholar-link { font-weight: 700; color: var(--blue); white-space: nowrap; }
+    .matrix-note { color: var(--muted); font-size: .82rem; margin-top: .8rem; }
+    .stats-row { display:grid; grid-template-columns: repeat(auto-fit,minmax(170px,1fr)); gap:1rem; margin-top:1.25rem; }
+    .stat { border:1px solid var(--line); border-radius:12px; padding:1rem; background:white; }
+    .stat strong { display:block; font-size:1.55rem; letter-spacing:-.03em; }
+    .stat span { color:var(--muted); font-size:.8rem; }
+    .evidence-box {
+      border-left: 4px solid var(--blue); background: #f8fafc; border-radius: 0 12px 12px 0;
+      padding: 1.1rem 1.25rem; color: #374151; line-height: 1.65;
+    }
+    .footer { border-top:1px solid var(--line); background:#fafafa; }
+    @media (max-width: 768px) {
+      .publication-title { font-size: 2.2rem !important; }
+      .path-arrow { display:none; }
+      .pathway { display:grid; grid-template-columns:1fr; }
+    }
+  </style>
 </head>
+
 <body>
-
-
-  <!-- Scroll to Top Button -->
-  <button class="scroll-to-top" onclick="scrollToTop()" title="Scroll to top" aria-label="Scroll to top">
-    <i class="fas fa-chevron-up"></i>
-  </button>
-
-  <!-- More Works Dropdown -->
-  <div class="more-works-container">
-    <button class="more-works-btn" onclick="toggleMoreWorks()" title="View More Works from Our Lab">
-      <i class="fas fa-flask"></i>
-      More Works
-      <i class="fas fa-chevron-down dropdown-arrow"></i>
-    </button>
-    <div class="more-works-dropdown" id="moreWorksDropdown">
-      <div class="dropdown-header">
-        <h4>More Works from Our Lab</h4>
-        <button class="close-btn" onclick="toggleMoreWorks()">
-          <i class="fas fa-times"></i>
-        </button>
-      </div>
-      <div class="works-list">
-        <!-- TODO: Replace with your lab's related works -->
-        <a href="https://arxiv.org/abs/PAPER_ID_1" class="work-item" target="_blank">
-          <div class="work-info">
-            <!-- TODO: Replace with actual paper title -->
-            <h5>Paper Title 1</h5>
-            <!-- TODO: Replace with brief description -->
-            <p>Brief description of the work and its main contribution.</p>
-            <!-- TODO: Replace with venue and year -->
-            <span class="work-venue">Conference/Journal 2024</span>
-          </div>
-          <i class="fas fa-external-link-alt"></i>
-        </a>
-        <!-- TODO: Add more related works or remove extra items -->
-        <a href="https://arxiv.org/abs/PAPER_ID_2" class="work-item" target="_blank">
-          <div class="work-info">
-            <h5>Paper Title 2</h5>
-            <p>Brief description of the work and its main contribution.</p>
-            <span class="work-venue">Conference/Journal 2023</span>
-          </div>
-          <i class="fas fa-external-link-alt"></i>
-        </a>
-        <a href="https://arxiv.org/abs/PAPER_ID_3" class="work-item" target="_blank">
-          <div class="work-info">
-            <h5>Paper Title 3</h5>
-            <p>Brief description of the work and its main contribution.</p>
-            <span class="work-venue">Conference/Journal 2023</span>
-          </div>
-          <i class="fas fa-external-link-alt"></i>
-        </a>
-      </div>
-    </div>
-  </div>
-
   <main id="main-content">
-  <section class="hero">
-    <div class="hero-body">
-      <div class="container is-max-desktop">
-        <div class="columns is-centered">
-          <div class="column has-text-centered">
-            <!-- TODO: Replace with your paper title -->
-            <h1 class="title is-1 publication-title">Academic Project Page</h1>
-            <div class="is-size-5 publication-authors">
-              <!-- TODO: Replace with your paper authors and their personal links -->
-              <span class="author-block">
-                <a href="FIRST AUTHOR PERSONAL LINK" target="_blank">First Author</a><sup>*</sup>,</span>
-                <span class="author-block">
-                  <a href="SECOND AUTHOR PERSONAL LINK" target="_blank">Second Author</a><sup>*</sup>,</span>
-                  <span class="author-block">
-                    <a href="THIRD AUTHOR PERSONAL LINK" target="_blank">Third Author</a>
-                  </span>
-                  </div>
 
-                  <div class="is-size-5 publication-authors">
-                    <!-- TODO: Replace with your institution and conference/journal info -->
-                    <span class="author-block">Institution Name<br>Conference name and year</span>
-                    <!-- TODO: Remove this line if no equal contribution -->
-                    <span class="eql-cntrb"><small><br><sup>*</sup>Indicates Equal Contribution</small></span>
-                  </div>
-
-                  <div class="column has-text-centered">
-                    <div class="publication-links">
-                         <!-- TODO: Update with your arXiv paper ID -->
-                      <span class="link-block">
-                        <a href="https://arxiv.org/pdf/<ARXIV PAPER ID>.pdf" target="_blank"
-                        class="external-link button is-normal is-rounded is-dark">
-                        <span class="icon">
-                          <i class="fas fa-file-pdf"></i>
-                        </span>
-                        <span>Paper</span>
-                      </a>
-                    </span>
-
-                    <!-- TODO: Add your supplementary material PDF or remove this section -->
-                    <span class="link-block">
-                      <a href="static/pdfs/supplementary_material.pdf" target="_blank"
-                      class="external-link button is-normal is-rounded is-dark">
-                      <span class="icon">
-                        <i class="fas fa-file-pdf"></i>
-                      </span>
-                      <span>Supplementary</span>
-                    </a>
-                  </span>
-
-                  <!-- TODO: Replace with your GitHub repository URL -->
-                  <span class="link-block">
-                    <a href="https://github.com/YOUR REPO HERE" target="_blank"
-                    class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon">
-                      <i class="fab fa-github"></i>
-                    </span>
-                    <span>Code</span>
-                  </a>
-                </span>
-
-                <!-- TODO: Update with your arXiv paper ID -->
-                <span class="link-block">
-                  <a href="https://arxiv.org/abs/<ARXIV PAPER ID>" target="_blank"
-                  class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                    <i class="ai ai-arxiv"></i>
-                  </span>
-                  <span>arXiv</span>
-                </a>
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<!-- Teaser video-->
-<section class="hero teaser">
-  <div class="container is-max-desktop">
-    <div class="hero-body">
-      <!-- TODO: Replace with your teaser video -->
-      <video poster="" id="tree" autoplay controls muted loop height="100%" preload="metadata">
-        <!-- TODO: Add your video file path here -->
-        <source src="static/videos/banner_video.mp4" type="video/mp4">
-      </video>
-      <!-- TODO: Replace with your video description -->
-      <h2 class="subtitle has-text-centered">
-        Aliquam vitae elit ullamcorper tellus egestas pellentesque. Ut lacus tellus, maximus vel lectus at, placerat pretium mi. Maecenas dignissim tincidunt vestibulum. Sed consequat hendrerit nisl ut maximus. 
-      </h2>
-    </div>
-  </div>
-</section>
-<!-- End teaser video -->
-
-<!-- Paper abstract -->
-<section class="section hero is-light">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
-        <div class="content has-text-justified">
-          <!-- TODO: Replace with your paper abstract -->
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ullamcorper tellus sed ante aliquam tempus. Etiam porttitor urna feugiat nibh elementum, et tempor dolor mattis. Donec accumsan enim augue, a vulputate nisi sodales sit amet. Proin bibendum ex eget mauris cursus euismod nec et nibh. Maecenas ac gravida ante, nec cursus dui. Vivamus purus nibh, placerat ac purus eget, sagittis vestibulum metus. Sed vestibulum bibendum lectus gravida commodo. Pellentesque auctor leo vitae sagittis suscipit.
+    <section class="hero is-literature">
+      <div class="hero-body">
+        <div class="container is-max-desktop has-text-centered">
+          <span class="eyebrow">42670 Research Foundations · Task 04</span>
+          <h1 class="title is-1 publication-title">3DGS for Interactive VR</h1>
+          <h2 class="subtitle is-4" style="margin-top:.65rem;">A Literature Map for Sparse-View Reconstruction and Spatial Reliability</h2>
+          <p class="hero-subtitle">
+            A living literature map connecting 3D Gaussian Splatting, immersive rendering,
+            sparse-view reconstruction, surface geometry, indoor structure, and VR-oriented spatial evaluation.
+            The site supports the literature-review framing developed for Task 04 and will expand as Themes 4 and 5 are reviewed.
           </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- End paper abstract -->
+          <p class="meta-line">
+            Sonain Jamil · University of Technology Sydney · Principal Supervisor: Stuart Perry
+          </p>
 
-
-<!-- Image carousel -->
-<section class="hero is-small">
-  <div class="hero-body">
-    <div class="container">
-      <div id="results-carousel" class="carousel results-carousel">
-       <div class="item">
-        <!-- TODO: Replace with your research result images -->
-        <img src="static/images/carousel1.jpg" alt="First research result visualization" loading="lazy"/>
-        <!-- TODO: Replace with description of this result -->
-        <h2 class="subtitle has-text-centered">
-          First image description.
-        </h2>
-      </div>
-      <div class="item">
-        <!-- Your image here -->
-        <img src="static/images/carousel2.jpg" alt="Second research result visualization" loading="lazy"/>
-        <h2 class="subtitle has-text-centered">
-          Second image description.
-        </h2>
-      </div>
-      <div class="item">
-        <!-- Your image here -->
-        <img src="static/images/carousel3.jpg" alt="Third research result visualization" loading="lazy"/>
-        <h2 class="subtitle has-text-centered">
-         Third image description.
-       </h2>
-     </div>
-     <div class="item">
-      <!-- Your image here -->
-      <img src="static/images/carousel4.jpg" alt="Fourth research result visualization" loading="lazy"/>
-      <h2 class="subtitle has-text-centered">
-        Fourth image description.
-      </h2>
-    </div>
-  </div>
-</div>
-</div>
-</section>
-<!-- End image carousel -->
-
-
-
-
-<!-- Youtube video -->
-<section class="hero is-small is-light">
-  <div class="hero-body">
-    <div class="container">
-      <!-- Paper video. -->
-      <h2 class="title is-3">Video Presentation</h2>
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-          
-          <div class="publication-video">
-            <!-- TODO: Replace with your YouTube video ID -->
-            <iframe src="https://www.youtube.com/embed/JkaxUblCGz0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+          <div class="publication-links" style="margin-top:1.4rem;">
+            <span class="link-block">
+              <a href="#literature" class="external-link button is-normal is-rounded is-dark">
+                <span class="icon"><i class="fas fa-table"></i></span>
+                <span>Browse Papers</span>
+              </a>
+            </span>
+            <span class="link-block">
+              <a href="https://github.com/sonainjameel/3dgs-vr-literature" target="_blank" class="external-link button is-normal is-rounded">
+                <span class="icon"><i class="fab fa-github"></i></span>
+                <span>GitHub</span>
+              </a>
+            </span>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-</section>
-<!-- End youtube video -->
+    </section>
 
+    <section class="section">
+      <div class="container is-max-desktop">
+        <h2 class="title is-3 section-title">Review scope</h2>
+        <p class="section-kicker">
+          The literature is organised around five connected themes. Themes 1–3 are currently populated with papers verified from the full text; Themes 4–5 will be added as the review progresses.
+        </p>
 
-<!-- Video carousel -->
-<section class="hero is-small">
-  <div class="hero-body">
-    <div class="container">
-      <h2 class="title is-3">Another Carousel</h2>
-      <div id="results-carousel" class="carousel results-carousel">
-        <div class="item item-video1">
-          <!-- TODO: Add poster image for better preview -->
-          <video poster="" id="video1" controls muted loop height="100%" preload="metadata">
-            <!-- Your video file here -->
-            <source src="static/videos/carousel1.mp4" type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-video2">
-          <!-- TODO: Add poster image for better preview -->
-          <video poster="" id="video2" controls muted loop height="100%" preload="metadata">
-            <!-- Your video file here -->
-            <source src="static/videos/carousel2.mp4" type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-video3">
-          <!-- TODO: Add poster image for better preview -->
-          <video poster="" id="video3" controls muted loop height="100%" preload="metadata">
-            <!-- Your video file here -->
-            <source src="static/videos/carousel3.mp4" type="video/mp4">
-          </video>
+        <div class="theme-grid">
+          <article class="theme-card">
+            <div class="theme-number">1</div>
+            <h3>3D Scene Representation &amp; Immersive Rendering</h3>
+            <p>How explicit Gaussian scene representations translate from real-time novel-view synthesis to the rendering, perceptual, and interaction constraints of VR.</p>
+            <span class="status-pill">8 paragraph topics · reviewed</span>
+          </article>
+
+          <article class="theme-card">
+            <div class="theme-number">2</div>
+            <h3>Sparse-View Reconstruction</h3>
+            <p>How reduced image observations affect initialization, overfitting, depth supervision, cross-view constraints, and Gaussian primitive behaviour.</p>
+            <span class="status-pill">10 paragraph topics · reviewed</span>
+          </article>
+
+          <article class="theme-card">
+            <div class="theme-number">3</div>
+            <h3>Geometry &amp; Surface Reconstruction</h3>
+            <p>How 3DGS methods recover reliable surfaces using depth, normals, stereo, signed-distance fields, mesh extraction, and geometry-aware regularisation.</p>
+            <span class="status-pill">9 paragraph topics · reviewed</span>
+          </article>
+
+          <article class="theme-card">
+            <div class="theme-number">4</div>
+            <h3>Indoor Spatial Structure, Floors &amp; Layouts</h3>
+            <p>Methods that recover structured indoor geometry, room layout, floor-related information, and spatial organisation from reconstructed scenes.</p>
+            <span class="status-pill">In progress</span>
+          </article>
+
+          <article class="theme-card">
+            <div class="theme-number">5</div>
+            <h3>VR Navigation &amp; Spatial Reliability</h3>
+            <p>Evidence and evaluation methods for judging whether reconstructed spatial structure is reliable enough for navigation and downstream immersive use.</p>
+            <span class="status-pill">In progress</span>
+          </article>
         </div>
       </div>
-    </div>
-  </div>
-</section>
-<!-- End video carousel -->
+    </section>
 
+    <section class="section hero is-light">
+      <div class="container is-max-desktop">
+        <h2 class="title is-3 section-title">Literature pathway</h2>
+        <p class="section-kicker">The review moves from representation and rendering toward the spatial properties required for interactive VR.</p>
+        <div class="pathway" aria-label="Literature review pathway">
+          <div class="path-node">Multi-view images</div><div class="path-arrow">→</div>
+          <div class="path-node">3DGS representation</div><div class="path-arrow">→</div>
+          <div class="path-node">VR rendering constraints</div><div class="path-arrow">→</div>
+          <div class="path-node">Sparse-view reconstruction</div><div class="path-arrow">→</div>
+          <div class="path-node">Geometry &amp; surfaces</div><div class="path-arrow">→</div>
+          <div class="path-node">Indoor structure</div><div class="path-arrow">→</div>
+          <div class="path-node">VR spatial reliability</div>
+        </div>
 
-
-
-
-
-<!-- Paper poster -->
-<section class="hero is-small is-light">
-  <div class="hero-body">
-    <div class="container">
-      <h2 class="title">Poster</h2>
-
-      <!-- TODO: Replace with your poster PDF -->
-      <iframe  src="static/pdfs/sample.pdf" width="100%" height="550">
-          </iframe>
-        
+        <div class="stats-row">
+          <div class="stat"><strong>23</strong><span>paper records currently mapped</span></div>
+          <div class="stat"><strong>27</strong><span>Task 04 paragraph topics across Themes 1–3</span></div>
+          <div class="stat"><strong>3 / 5</strong><span>themes currently reviewed</span></div>
+          <div class="stat"><strong>Full text</strong><span>evidence standard for included claims</span></div>
+        </div>
       </div>
-    </div>
-  </section>
-<!--End paper poster -->
+    </section>
 
+    <section class="section" id="literature">
+      <div class="container is-fluid" style="max-width:1500px;">
+        <h2 class="title is-3 section-title">Interactive literature matrix</h2>
+        <p class="section-kicker">
+          Search by paper, method, cue, scene type, or output. Theme filters can be combined with free-text search.
+        </p>
 
+        <div class="controls">
+          <div class="search-wrap">
+            <input id="paperSearch" class="search-input" type="search" placeholder="Search title, method, geometry cue, output, venue..." aria-label="Search literature">
+          </div>
+          <button class="filter-btn active" data-theme="All">All</button>
+          <button class="filter-btn" data-theme="Theme 1">Theme 1</button>
+          <button class="filter-btn" data-theme="Theme 2">Theme 2</button>
+          <button class="filter-btn" data-theme="Theme 3">Theme 3</button>
+        </div>
 
-<!--BibTex citation -->
-  <section class="section" id="BibTeX">
-    <div class="container is-max-desktop content">
-      <div class="bibtex-header">
-        <h2 class="title">BibTeX</h2>
-        <button class="copy-bibtex-btn" onclick="copyBibTeX()" title="Copy BibTeX to clipboard">
-          <i class="fas fa-copy"></i>
-          <span class="copy-text">Copy</span>
-        </button>
+        <div class="table-shell">
+          <table class="survey-table">
+            <thead>
+              <tr>
+                <th>Paper</th>
+                <th>Year</th>
+                <th>Venue</th>
+                <th>Theme</th>
+                <th>Main focus</th>
+                <th>Geometry / supervision cue</th>
+                <th>Output</th>
+                <th>Setting</th>
+                <th>Evidence</th>
+                <th>Find</th>
+              </tr>
+            </thead>
+            <tbody id="paperTableBody"></tbody>
+          </table>
+        </div>
+        <p class="matrix-note"><span id="resultCount"></span> · Theme membership is intentionally non-exclusive where a paper bridges two parts of the review.</p>
       </div>
-      <pre id="bibtex-code"><code>@article{YourPaperKey2024,
-  title={Your Paper Title Here},
-  author={First Author and Second Author and Third Author},
-  journal={Conference/Journal Name},
-  year={2024},
-  url={https://your-domain.com/your-project-page}
-}</code></pre>
-    </div>
-</section>
-<!--End BibTex citation -->
+    </section>
 
+    <section class="section hero is-light">
+      <div class="container is-max-desktop">
+        <h2 class="title is-3 section-title">How the map is used</h2>
+        <div class="evidence-box">
+          Papers are grouped by the research problem they help explain rather than by publication chronology.
+          The matrix separates rendering quality, reconstruction supervision, geometric output, and scene setting so that
+          visually convincing novel-view synthesis is not automatically treated as evidence of reliable three-dimensional structure.
+          Each Task 04 topic sentence is developed from multiple papers wherever the literature supports a shared claim.
+        </div>
+      </div>
+    </section>
+
+  </main>
 
   <footer class="footer">
-  <div class="container">
-    <div class="columns is-centered">
-      <div class="column is-8">
-        <div class="content">
-
-          <p>
-            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
-            You are free to borrow the source code of this website, we just ask that you link back to this page in the footer. <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
-            Commons Attribution-ShareAlike 4.0 International License</a>.
-          </p>
-
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-9">
+          <div class="content has-text-centered">
+            <p>
+              Literature map maintained for the Interactive 3D Reconstruction PhD project at UTS.
+              This page is based on the
+              <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a>,
+              adapted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
+            </p>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</footer>
+  </footer>
 
-<!-- Statcounter tracking code -->
-  
-<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
+  <script>
+    const papers = [{"title": "3D Gaussian Splatting for Real-Time Radiance Field Rendering", "authors": "Kerbl et al.", "year": 2023, "venue": "ACM Transactions on Graphics", "theme": "Theme 1", "focus": "Explicit 3DGS representation and real-time novel-view rendering", "cue": "SfM initialization; anisotropic Gaussians", "output": "3D Gaussian scene", "setting": "General scenes", "status": "Verified from full paper"}, {"title": "VR-Splatting: Foveated Radiance Field Rendering via 3D Gaussian Splatting and Neural Points", "authors": "Franke et al.", "year": 2025, "venue": "PACMCGIT", "theme": "Theme 1", "focus": "VR rendering budget and foveated rendering", "cue": "Eye tracking; foveated hybrid rendering", "output": "VR rendering", "setting": "Head-mounted display", "status": "Verified from full paper"}, {"title": "VRSplat: Fast and Robust Gaussian Splatting for Virtual Reality", "authors": "Tu et al.", "year": 2025, "venue": "PACMCGIT", "theme": "Theme 1", "focus": "View-consistent, robust Gaussian rendering for VR", "cue": "View-consistent sorting; projection improvements; foveation", "output": "VR rendering", "setting": "Head-mounted display", "status": "Verified from full paper"}, {"title": "VR-GS: A Physical Dynamics-Aware Interactive Gaussian Splatting System in Virtual Reality", "authors": "Jiang et al.", "year": 2024, "venue": "ACM graphics / VR system paper", "theme": "Theme 1", "focus": "Interactive and physics-aware Gaussian scenes", "cue": "Tetrahedral simulation proxy; XPBD; collision", "output": "3DGS + simulation geometry", "setting": "Interactive VR", "status": "Verified from full paper"}, {"title": "FSGS: Real-Time Few-shot View Synthesis using Gaussian Splatting", "authors": "Zhu et al.", "year": 2024, "venue": "ECCV", "theme": "Theme 2", "focus": "Few-shot Gaussian reconstruction", "cue": "Gaussian unpooling; virtual views; geometric regularisation", "output": "3D Gaussian scene", "setting": "Sparse views", "status": "Verified from full paper"}, {"title": "DNGaussian: Optimizing Sparse-View 3D Gaussian Radiance Fields with Global-Local Depth Normalization", "authors": "Li et al.", "year": 2024, "venue": "CVPR", "theme": "Theme 2", "focus": "Depth-regularised sparse-view 3DGS", "cue": "Monocular depth; global-local normalisation", "output": "3D Gaussian scene", "setting": "Sparse views", "status": "Verified from full paper"}, {"title": "MVPGS: Excavating Multi-view Priors for Gaussian Splatting from Sparse Input Views", "authors": "Xu et al.", "year": 2024, "venue": "ECCV", "theme": "Theme 2", "focus": "Multi-view priors for few-shot reconstruction", "cue": "MVS initialization; warping; depth ordering", "output": "3D Gaussian scene", "setting": "Sparse views", "status": "Verified from full paper"}, {"title": "NexusGS: Sparse View Synthesis with Epipolar Depth Priors in 3D Gaussian Splatting", "authors": "Zheng et al.", "year": 2025, "venue": "CVPR", "theme": "Theme 2", "focus": "Epipolar depth priors for sparse views", "cue": "Optical flow; camera poses; epipolar depth", "output": "3D Gaussian scene", "setting": "Sparse views", "status": "Verified from full paper"}, {"title": "CoR-GS: Sparse-View 3D Gaussian Splatting via Co-Regularization", "authors": "Zhang et al.", "year": 2024, "venue": "ECCV", "theme": "Theme 2", "focus": "Prior-free co-regularisation", "cue": "Point disagreement; rendering disagreement; co-pruning", "output": "3D Gaussian scene", "setting": "Sparse views", "status": "Verified from full paper"}, {"title": "DropoutGS: Dropping Out Gaussians for Better Sparse-view Rendering", "authors": "Xu et al.", "year": 2025, "venue": "CVPR", "theme": "Theme 2", "focus": "Regularisation by Gaussian dropout", "cue": "Random dropout; edge-guided splitting", "output": "3D Gaussian scene", "setting": "Sparse views", "status": "Verified from full paper"}, {"title": "DropGaussian: Structural Regularization for Sparse-view Gaussian Splatting", "authors": "Park et al.", "year": 2025, "venue": "CVPR", "theme": "Theme 2", "focus": "Structural regularisation without external priors", "cue": "Progressive Gaussian removal", "output": "3D Gaussian scene", "setting": "Sparse views", "status": "Verified from full paper"}, {"title": "Sparse-Splatter: Multi-Cue Geometric Regularization for Sparse-View 3D Gaussian Splatting", "authors": "Jiang et al.", "year": 2026, "venue": "Computers & Graphics", "theme": "Theme 2", "focus": "Multi-cue geometric regularisation", "cue": "MVS initialization; depth; normals; primitive constraints", "output": "3D Gaussian scene", "setting": "Extremely sparse views", "status": "Verified from full paper"}, {"title": "GDoFS: Gaussian DoF Separation for Plausible 3D Geometry in Sparse-View 3DGS", "authors": "Kim et al.", "year": 2026, "venue": "WACV", "theme": "Theme 2", "focus": "Preventing photometric optimisation from degrading geometry", "cue": "Separated positional DoFs; bounded offsets; visibility loss", "output": "3D Gaussian scene", "setting": "Sparse views", "status": "Verified from full paper"}, {"title": "StereoGS: Sparse-View 3D Gaussian Splatting via Stereo Priors", "authors": "Yuan et al.", "year": 2026, "venue": "arXiv", "theme": "Theme 2", "focus": "Stereo priors for sparse-view reconstruction", "cue": "Virtual stereo pairs; stereo depth; consistency", "output": "3D Gaussian scene", "setting": "Sparse views", "status": "Verified from full paper"}, {"title": "SparseSurf: Sparse-View 3D Gaussian Splatting for Surface Reconstruction", "authors": "Gu et al.", "year": 2026, "venue": "AAAI", "theme": "Theme 2 / 3", "focus": "Sparse-view surface reconstruction and NVS", "cue": "Stereo geometry-texture alignment; feature consistency", "output": "3DGS + surface reconstruction", "setting": "Sparse views", "status": "Verified from full paper"}, {"title": "CODN-GS: Coupled Optimization of Depth and Normal in 3D Gaussian Splatting for Scene Reconstruction", "authors": "Hu et al.", "year": 2025, "venue": "IEEE TASE", "theme": "Theme 3", "focus": "Joint depth-normal optimisation for geometric consistency", "cue": "Depth and normal supervision", "output": "Geometrically constrained 3DGS", "setting": "Scene reconstruction", "status": "Verified from full paper"}, {"title": "SMDGS: Scale-Aligned Monocular Depth-Guided 3D Gaussian Splatting for Rendering and Surface Reconstruction", "authors": "Wei et al.", "year": 2026, "venue": "IEEE TVCG", "theme": "Theme 3", "focus": "Rendering and surface reconstruction", "cue": "Scale-aligned depth; normals; multi-view consistency", "output": "3DGS + surface reconstruction", "setting": "Indoor / outdoor / object scenes", "status": "Verified from full paper"}, {"title": "Photometric Regularization for 3D Gaussian Splatting in Multi-View Surface Projection", "authors": "Ju et al.", "year": 2025, "venue": "IEEE JSTSP", "theme": "Theme 3", "focus": "Surface-aware Gaussian projection", "cue": "Photometric stereo normals; occlusion handling", "output": "Surface-aware Gaussian projection", "setting": "Multi-view photometric stereo", "status": "Verified from full paper"}, {"title": "SurfaceSplat: Connecting Surface Reconstruction and Gaussian Splatting", "authors": "Gao et al.", "year": 2025, "venue": "ICCV", "theme": "Theme 3", "focus": "Hybrid SDF and Gaussian surface reconstruction", "cue": "SDF + 3DGS mutual refinement", "output": "Mesh + 3DGS", "setting": "Sparse views", "status": "Verified from full paper"}, {"title": "3DGSR: Implicit Surface Reconstruction with 3D Gaussian Splatting", "authors": "Lyu et al.", "year": 2024, "venue": "ACM Transactions on Graphics", "theme": "Theme 3", "focus": "Implicit surface reconstruction with Gaussian guidance", "cue": "Joint SDF and Gaussian optimisation", "output": "Implicit surface / mesh + 3DGS", "setting": "Multi-view reconstruction", "status": "Verified from full paper"}, {"title": "GS2Mesh: Surface Reconstruction from Gaussian Splatting via Novel Stereo Views", "authors": "Wolf et al.", "year": 2024, "venue": "ECCV", "theme": "Theme 3", "focus": "Mesh extraction from Gaussian scenes", "cue": "Novel stereo views; stereo depth; TSDF fusion", "output": "Triangulated mesh", "setting": "Dense / general multi-view", "status": "Verified from full paper"}, {"title": "Neural Texture Splatting: Expressive 3D Gaussian Splatting for View Synthesis, Geometry, and Dynamic Reconstruction", "authors": "Wang et al.", "year": 2025, "venue": "SIGGRAPH Asia", "theme": "Theme 3", "focus": "Appearance modelling and geometry reconstruction", "cue": "Shared neural texture fields", "output": "Enhanced 3DGS", "setting": "Dense and sparse inputs", "status": "Verified from full paper"}, {"title": "FreeSplat++: Generalizable 3D Gaussian Splatting for Efficient Indoor Scene Reconstruction", "authors": "Wang et al.", "year": 2026, "venue": "IEEE TPAMI", "theme": "Theme 3 / 4", "focus": "Whole-scene indoor reconstruction", "cue": "Cross-view aggregation; fusion; floater removal; depth regularisation", "output": "Whole-scene 3DGS", "setting": "Indoor whole scenes", "status": "Verified from full paper"}];
+    let activeTheme = "All";
 
-    <!-- End of Statcounter Code -->
+    function scholarUrl(title) {
+      return "https://scholar.google.com/scholar?q=" + encodeURIComponent(title);
+    }
 
-  </body>
-  </html>
+    function themeMatches(paper, selected) {
+      if (selected === "All") return true;
+      return paper.theme.includes(selected);
+    }
+
+    function renderPapers() {
+      const query = document.getElementById("paperSearch").value.trim().toLowerCase();
+      const body = document.getElementById("paperTableBody");
+
+      const filtered = papers.filter(p => {
+        const searchable = [
+          p.title, p.authors, p.year, p.venue, p.theme,
+          p.focus, p.cue, p.output, p.setting, p.status
+        ].join(" ").toLowerCase();
+
+        return themeMatches(p, activeTheme) && (!query || searchable.includes(query));
+      }).sort((a,b) => b.year - a.year || a.title.localeCompare(b.title));
+
+      body.innerHTML = filtered.map(p => `
+        <tr>
+          <td class="paper-title">${p.title}<span class="paper-authors">${p.authors}</span></td>
+          <td>${p.year}</td>
+          <td>${p.venue}</td>
+          <td><span class="tag-theme">${p.theme}</span></td>
+          <td>${p.focus}</td>
+          <td>${p.cue}</td>
+          <td>${p.output}</td>
+          <td>${p.setting}</td>
+          <td><span class="status-ok">✓ ${p.status}</span></td>
+          <td><a class="scholar-link" href="${scholarUrl(p.title)}" target="_blank" rel="noopener">Scholar ↗</a></td>
+        </tr>
+      `).join("");
+
+      document.getElementById("resultCount").textContent =
+        `${filtered.length} of ${papers.length} papers shown`;
+    }
+
+    document.getElementById("paperSearch").addEventListener("input", renderPapers);
+    document.querySelectorAll(".filter-btn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        activeTheme = btn.dataset.theme;
+        renderPapers();
+      });
+    });
+
+    renderPapers();
+  </script>
+</body>
+</html>
